@@ -32,7 +32,7 @@ public class RpcProxy {
         public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
             //首先判断类是不是接口，如果是接口才做处理
             if (Object.class.equals(method.getDeclaringClass())){
-                return method.invoke(this,args);
+                return method.invoke(proxy,args);
             }else{//是接口
                 return rpcInvoker(proxy,method,args);
             }
